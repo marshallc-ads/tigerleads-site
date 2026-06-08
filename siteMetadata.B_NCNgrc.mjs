@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.fXUlgfaW.mjs";function t(e,t){return{description:`Connect with high-value contracting jobs in your area. Access exclusive leads, unlock opportunities with credits, and grow your business with TigerLeads AI.`,favicon:`images/LL6S8sjpzEiWNL02v33BrOIGJGE_144.png`,robots:`max-image-preview:large`,socialImage:`images/hecKwYiSUyqOfs1DRuxVERE_145.jpg`,title:`Tigerleads.AI`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=siteMetadata.B_NCNgrc.mjs.map
