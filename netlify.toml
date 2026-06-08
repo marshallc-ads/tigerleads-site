@@ -1,0 +1,12 @@
+[build]
+  publish = "dist"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/*.framercms"
+  [headers.values]
+    Content-Type = "application/octet-stream"
