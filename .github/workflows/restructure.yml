@@ -1,0 +1,59 @@
+name: Restructure repo - move files into dist/
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restructure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Move all build output into dist/
+        run: |
+          mkdir -p dist
+
+          # Move folders into dist/
+          for dir in 20-data-points about-us assets contact-us fonts how-credits-work how-we-source-our-data images privacy-policy terms-of-service; do
+            if [ -d "$dir" ]; then
+              mv "$dir" dist/
+              echo "Moved folder: $dir"
+            fi
+          done
+
+          # Move all .mjs files into dist/
+          find . -maxdepth 1 -name '*.mjs' -exec mv {} dist/ \;
+
+          # Move other build files into dist/
+          for file in _headers _redirects index.html framer-cdn-map.json HOSTING.md; do
+            if [ -f "$file" ]; then
+              mv "$file" dist/
+              echo "Moved file: $file"
+            fi
+          done
+
+          # Remove old root vercel.json if still exists (already moved to dist/)
+          if [ -f "vercel.json" ]; then
+            rm vercel.json
+            echo "Removed old root vercel.json"
+          fi
+
+          echo "--- Contents of dist/ ---"
+          ls dist/
+          echo "--- Contents of root ---"
+          ls -la
+
+      - name: Commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git status
+          git commit -m 'Restructure: move all build output into dist/ folder'
+          git push
