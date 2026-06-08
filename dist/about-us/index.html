@@ -277,7 +277,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #__framer-editorbar.status_measuring {
     clip-path: unset;
 }
-</style><style>.osano-cm-window,.osano-cm-dialog,.osano-cm-info-dialog,.osano-cm-widget{z-index:2147483647 !important;pointer-events:auto !important;}.osano-cm-dialog *,.osano-cm-info-dialog *{pointer-events:auto !important;}</style></head>
+</style></head>
 <body>
 	<iframe name="__uspapiLocator" style="display: none;"></iframe><script data-no-nt="" data-fid="19016eeb9e161b238709fa46e7c88e91b51c261f9e4818d9fe35ffda960c3634" src="https://events.framer.com/script?v=2" async=""></script>
 	<!-- Start of bodyStart -->
@@ -1137,4 +1137,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- End of bodyEnd -->
 
 
+<script>
+(function(){
+  function fixOsano(){
+    var o=document.getElementById("overlay");
+    var t=document.getElementById("template-overlay");
+    if(o){o.style.cssText="pointer-events:none !important;z-index:auto !important;";}
+    if(t){t.style.cssText="pointer-events:none !important;z-index:auto !important;";}
+    document.querySelectorAll(".osano-cm-window,.osano-cm-dialog,.osano-cm-info-dialog,.osano-cm-widget").forEach(function(el){
+      el.style.setProperty("z-index","2147483647","important");
+      el.style.setProperty("pointer-events","auto","important");
+    });
+    document.querySelectorAll(".osano-cm-dialog *,.osano-cm-info-dialog *,.osano-cm-widget *").forEach(function(el){
+      el.style.setProperty("pointer-events","auto","important");
+    });
+  }
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){setInterval(fixOsano,500);});}
+  else{setInterval(fixOsano,500);}
+})();
+</script>
 </body></html>
