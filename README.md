@@ -1,12 +1,12 @@
 # TigerLeads Site
 
-TigerLeads AI Landing Page — a static site built with Framer, deployed via Vercel.
+TigerLeads AI Landing Page — a static site built with Framer, deployed via Netlify.
 
 ## Repository Structure
 
 ```
 tigerleads-site/
-├── dist/                  ← all build output (served by Vercel)
+├── dist/                  ← all build output (served by Netlify)
 │   ├── 20-data-points/
 │   ├── about-us/
 │   ├── assets/
@@ -23,17 +23,17 @@ tigerleads-site/
 │   ├── framer-cdn-map.json
 │   ├── HOSTING.md
 │   └── *.mjs  (hashed JS chunks)
-├── vercel.json            ← Vercel config (outputDirectory: dist)
+├── netlify.toml           ← Netlify config (publish = "dist")
 ├── .gitignore
 └── README.md              ← this file
 ```
 
 ## Deployment
 
-This site is deployed on [Vercel](https://vercel.com). Vercel is configured (via `vercel.json`) to serve the `dist/` directory as the output.
+This site is deployed on [Netlify](https://netlify.com). Netlify is configured (via `netlify.toml`) to serve the `dist/` directory as the publish directory.
 
 ## Tech Stack
 
 - **Framework**: Framer (exported as static HTML/JS)
-- **Hosting**: Vercel
+- **Hosting**: Netlify
 - **Languages**: JavaScript, HTML
