@@ -1137,23 +1137,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- End of bodyEnd -->
 
 
-<script>
-(function(){
-  function fixOsano(){
-    var o=document.getElementById("overlay");
-    var t=document.getElementById("template-overlay");
-    if(o){o.style.cssText="pointer-events:none !important;z-index:auto !important;";}
-    if(t){t.style.cssText="pointer-events:none !important;z-index:auto !important;";}
-    document.querySelectorAll(".osano-cm-window,.osano-cm-dialog,.osano-cm-info-dialog,.osano-cm-widget").forEach(function(el){
-      el.style.setProperty("z-index","2147483647","important");
-      el.style.setProperty("pointer-events","auto","important");
-    });
-    document.querySelectorAll(".osano-cm-dialog *,.osano-cm-info-dialog *,.osano-cm-widget *").forEach(function(el){
-      el.style.setProperty("pointer-events","auto","important");
-    });
-  }
-  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){setInterval(fixOsano,500);});}
-  else{setInterval(fixOsano,500);}
-})();
-</script>
 </body></html>
